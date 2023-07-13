@@ -1,4 +1,4 @@
-# CTF Web Serveur - IDOR et Magic Hash
+# CTF Web Serveur - Timestamp et 32bits
 
 ## Présentation du CTF 
 **ID** 9 dans **les CTFs de Cyrhades**
