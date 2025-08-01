@@ -45,7 +45,7 @@ class HomeController extends AbstractController
                         <hr>
 
                         <h3>Affaire classée !</h3>
-                        <h3>Flag : <strong>".$this->getFlag('DEFAULT_CTF_FLAG')."</strong></h3>
+                        <h3>Flag : <strong>".$this->getFlag()."</strong></h3>
                         ");
                     }
                 }
