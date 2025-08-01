@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Affaires classées (timestamp 32bits)</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="top-nav-bar">
+            <div class="top-nav-bar-top">
+                <div class="ho-official-website left">
+                    An Unofficial website of the United States government. <u>Funny CTF</u>
+                </div>
+            </div>
+        </div>
+        <div class="wrap header-wrap">
+            <div class="container">
+                <div class="brand">
+                    <a href="/">
+                        <img src="/assets/images/fbi_seal_new.png">
+                    </a>
+                <div>
+                <span class="initials" aria-hidden="true">FBI</span>
+                <span class="fullname">Federal Bureau of Investigation</span>
+                </div>
+                </a>
+                </div>
+            </div>
+        </div>        
+        <div class="cover-image-background"></div>
+    </div>
+    <div class="container">
+        <div class="content_page">
+            <section class="m-5">
+              {% if message != null %} {{ message }} {% endif %}
+              <h2>Je veux ouvrir un dossier</h2>
+              <strong>Tous les dossiers déclarés entre 1970 et 2000 sont considérés classés !</strong>
+              <div class="row">
+                  <form method="post">
+                      <div class="form-group">
+                          <label for="nom_dossier">Nom du dossier :</label>
+                          <input type="text" class="form-control" id="nom_dossier" name="nom_dossier" required>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="date_creation">Date de création :</label>
+                          <input type="date" class="form-control" id="date_creation" name="date_creation" readonly="readonly" required>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="description">Description :</label>
+                          <textarea class="form-control" id="description" name="description" rows="5" cols="50"></textarea>
+                      </div>
+
+                      <div class="text-center mt-5">
+                          <button type="submit" class="btn btn-primary">Envoyer</button>
+                      </div>
+                  </form>    
+              </div>
+            </section>
+            <section class="m-5">
+                <div class="row">
+                    <h2>Nouveautés</h2>
+                    <div class="mt-4 col-6">
+                        <h4>Histoires  (ou presque)</h4>
+                        <ul>
+                            <li class="mt-4">
+                                <p class="date"><?= date("d.m.Y"); ?></p>
+                                <p class="title"><a href="#">Le secret des licornes volantes</a></p>
+                                <p class="description">Cette histoire raconte l'histoire d'une petite fille qui découvre un groupe de licornes volantes dans son jardin.</p>
+                            </li>
+                            <li>
+                                <p class="date"><?= date("d.m.Y"); ?></p>
+                                <p class="title"><a href="#">Le voyage dans le temps</a></p>
+                                <p class="description">L'invention d'un scientifique d'une machine à voyager dans le temps. Il rencontre des personnages historiques célèbres tels que Napoléon et Jules César, mais finit par causer des dommages irréparables.</p>
+                            </li>
+                            <li>
+                                <p class="date"><?= str_pad((date("d")-1),2,'0',STR_PAD_LEFT).'.'.date("m.Y"); ?></p>
+                                <p class="title"><a href="#">La quête du dragon magique</a></p>
+                                <p class="description">Cette histoire suit un groupe d'aventuriers qui partent à la recherche d'un dragon magique qui peut leur donner des pouvoirs surhumains. </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-4 col-6">
+                        <h4>Articles de Presse</h4>
+                        <ul>
+                            <li class="mt-4">
+                                <p class="date"><?= date("d.m.Y"); ?></p>
+                                <p class="title"><a href="#">Une entreprise prétend pouvoir convertir les légumes en or grâce à la science alchimique</a></p>
+                            </li>
+                            <li>
+                                <p class="date"><?= date("d.m.Y"); ?></p>
+                                <p class="title"><a href="#">Un nouveau produit pour faire pousser des arbres de Noël toute l'année est maintenant disponible</a></p>
+                            </li>
+                            <li>
+                                <p class="date"><?= date("d.m.Y"); ?></p>
+                                <p class="title"><a href="#">Un éleveur de licornes annonce une nouvelle race de licornes avec des ailes rétractables</a></p>
+                            </li>
+                            <li>
+                                <p class="date"><?= str_pad((date("d")-1),2,'0',STR_PAD_LEFT).'.'.date("m.Y"); ?></p>
+                                <p class="title"><a href="#">Un fabricant de parfums dévoile une nouvelle fragrance inspirée de l'odeur des chaussettes de sport usagées</a></p>
+                            </li>
+                            <li>
+                                <p class="date"><?= str_pad((date("d")-1),2,'0',STR_PAD_LEFT).'.'.date("m.Y"); ?></p>
+                                <p class="title"><a href="#">Une entreprise propose un service de nettoyage de cerveau pour effacer les souvenirs embarrassants</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="container-fluid">           
+        <div class="main-footer" id="main-footer">
+            <div class="footer-copy"> 
+                <a href="#" target="_blank" title="An Unofficial Laboratory Quality System Documents">
+                An Unofficial website of the United States government Department of Humor
+                <span class="copy-year"> © <span id="year"></span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+		var today = new Date();
+		var date = today.getFullYear()+'-'+(today.getMonth()+1).toString().padStart(2, '0')+'-'+today.getDate().toString().padStart(2, '0');
+		document.getElementById("date_creation").value = date;
+	</script>
+</body>
+</html>
