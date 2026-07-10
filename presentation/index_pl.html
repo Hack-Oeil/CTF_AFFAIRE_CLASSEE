@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head lang="pl">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sprawdza czy okno jest w iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Wyzwanie #9</h3>
+                            <h2 class="section-title">Zamknięte sprawy</h2>
+                            <p class="section-subtitle">
+                                Zdobądź flagę, pomyślnie przesyłając plik, sprawiając, że wygląda jak plik
+                                z datą między 1970 a 2000 rokiem.
+                            </p>
+                            <h4>Podgląd:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="podgląd">
+                            <p class="section-subtitle">
+                                Aby to zrobić, potrzebujesz następującej wiedzy:
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>Zrozumieć błąd roku 2038 związany ze znacznikiem czasu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Nauka</h3>
+                            <h2 class="section-title">Dokumentacje i filmy</h2>
+                            <p class="section-subtitle">
+                                Brak dokumentacji w tej chwili
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Pomoc</h3>
+                            <h2 class="section-title">Wskazówki i podpowiedzi</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Wątek na
+                                    Discordzie</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Wróć na górę"></a>
+    </div>
+</body>
+
+</html>

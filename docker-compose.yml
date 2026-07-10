@@ -1,21 +1,30 @@
-version: '3.9'
 services:
-  ho-webserver:
+  webserver:
     build:
       context: ./.docker/server_http
       args:
         TIMEZONE: ${TIMEZONE}
-    environment:
-      - HOOS_CTF_USERNAME=${HOOS_CTF_USERNAME:-}
     labels:
-      ho.ctf.cyrhades: "1"
+      ho.ctf.cyrhades: "challenge"
     ports:
       - ${PORT}:80
+    environment:
+      - HOOS_CTF_EMAIL=${HOOS_CTF_EMAIL:-}
+      - HOOS_CTF_USERNAME=${HOOS_CTF_USERNAME:-}
+      - LANGUAGE=${LANGUAGE:-fr}
     restart: always
     volumes:
       - web:/var/www/html
+    read_only: true
+    tmpfs:
+      - /var/run/apache2/
+      - /tmp
+      - /var/tmp
+      - /var/log/apache2
   composer:
     image: composer
+    labels:
+      ho.ctf.cyrhades: "1"
     volumes:
       - web:/app
     command: composer install --ignore-platform-reqs

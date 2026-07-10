@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head lang="de">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Überprüft, ob das Fenster in einem iframe ist
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Challenge #9</h3>
+                            <h2 class="section-title">Abgeschlossene Fälle</h2>
+                            <p class="section-subtitle">
+                                Holen Sie sich das Flag, indem Sie erfolgreich eine Datei einreichen, die
+                                als eine Datei mit einem Datum zwischen 1970 und 2000 erscheint.
+                            </p>
+                            <h4>Vorschau:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="Vorschau">
+                            <p class="section-subtitle">
+                                Dafür benötigen Sie folgende Kenntnisse:
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>Den 2038-Bug mit dem Zeitstempel verstehen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Lernen</h3>
+                            <h2 class="section-title">Dokumentationen und Videos</h2>
+                            <p class="section-subtitle">
+                                Derzeit keine Dokumentation verfügbar
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Hilfe</h3>
+                            <h2 class="section-title">Tipps und Hinweise</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Thread auf
+                                    Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Zurück nach oben"></a>
+    </div>
+</body>
+
+</html>

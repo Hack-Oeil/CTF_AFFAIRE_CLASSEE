@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head lang="ja">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ウィンドウがiframe内にあるか確認
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>チャレンジ #9</h3>
+                            <h2 class="section-title">解決済み事件</h2>
+                            <p class="section-subtitle">
+                                1970年から2000年の間の日付を持つファイルに見せかけたファイルを
+                                送信することに成功してフラグを取得してください。
+                            </p>
+                            <h4>プレビュー：</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="プレビュー">
+                            <p class="section-subtitle">
+                                そのためには、以下の知識が必要です：
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>タイムスタンプに関する2038年問題を理解する</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>学習</h3>
+                            <h2 class="section-title">ドキュメントと動画</h2>
+                            <p class="section-subtitle">
+                                現時点でドキュメントはありません
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>ヘルプ</h3>
+                            <h2 class="section-title">ヒントと手がかり</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discordの
+                                    スレッド</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="ページトップへ"></a>
+    </div>
+</body>
+
+</html>

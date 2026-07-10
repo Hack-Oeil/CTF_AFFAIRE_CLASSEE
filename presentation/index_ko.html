@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head lang="ko">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 창이 iframe 안에 있는지 확인
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>챌린지 #9</h3>
+                            <h2 class="section-title">종결된 사건</h2>
+                            <p class="section-subtitle">
+                                1970년에서 2000년 사이의 날짜를 가진 파일로 위장한 파일을
+                                성공적으로 제출하여 플래그를 획득하세요.
+                            </p>
+                            <h4>미리보기:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="미리보기">
+                            <p class="section-subtitle">
+                                이를 위해 다음 지식이 필요합니다:
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>타임스탬프와 관련된 2038년 버그 이해하기</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>학습</h3>
+                            <h2 class="section-title">문서 및 동영상</h2>
+                            <p class="section-subtitle">
+                                현재 문서가 없습니다
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>도움말</h3>
+                            <h2 class="section-title">팁과 힌트</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord의
+                                    스레드</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="맨 위로"></a>
+    </div>
+</body>
+
+</html>

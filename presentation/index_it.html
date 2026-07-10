@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head lang="it">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Verifica se la finestra è in un iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Challenge #9</h3>
+                            <h2 class="section-title">Casi Archiviati</h2>
+                            <p class="section-subtitle">
+                                Recupera il flag riuscendo a inviare un file facendolo passare per un file
+                                con una data compresa tra il 1970 e il 2000.
+                            </p>
+                            <h4>Anteprima:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="anteprima">
+                            <p class="section-subtitle">
+                                Per fare ciò è necessario avere le seguenti conoscenze:
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>Comprendere il bug del 2038 con il timestamp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Apprendimento</h3>
+                            <h2 class="section-title">Documentazioni e Video</h2>
+                            <p class="section-subtitle">
+                                Nessuna documentazione al momento
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Aiuto</h3>
+                            <h2 class="section-title">Consigli e suggerimenti</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Thread su
+                                    Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Torna in cima"></a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head lang="zh">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 检查窗口是否在iframe中
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>挑战 #9</h3>
+                            <h2 class="section-title">已结案</h2>
+                            <p class="section-subtitle">
+                                通过成功提交一个看起来像是1970年至2000年之间日期的文件来获取flag。
+                            </p>
+                            <h4>预览：</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="预览">
+                            <p class="section-subtitle">
+                                为此，您需要具备以下知识：
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>了解与时间戳相关的2038年漏洞</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>学习</h3>
+                            <h2 class="section-title">文档和视频</h2>
+                            <p class="section-subtitle">
+                                目前没有文档
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>帮助</h3>
+                            <h2 class="section-title">提示和线索</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Discord上的
+                                    帖子</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="返回顶部"></a>
+    </div>
+</body>
+
+</html>

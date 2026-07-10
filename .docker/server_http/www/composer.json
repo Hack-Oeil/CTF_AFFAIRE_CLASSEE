@@ -12,29 +12,23 @@
     "config": {
         "platform": {
             "php": "7.4"
-         }
-    },
-    "repositories":[
-        {
-            "type": "package",
-            "package": {
-                "name": "cyrhades/yoop",
-                "version" : "master",
-                "source": {
-                    "url": "https://github.com/Cyrhades/yoop.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-4": { "Yoop\\": ["src/"] }
-                }
+         },
+        "policy": {
+            "advisories": {
+                "block": false
             }
-      
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Cyrhades/yoop.git",
+            "no-api": true
         }
     ],
     "require": {
         "cyrhades/yoop": "master",
-        "twig/twig": "^3.0",
+        "twig/twig": "^3.0, <3.12",
         "textalk/websocket": "^1.6",
         "nikic/fast-route": "^1.3" 
     },

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head lang="th">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ตรวจสอบว่าหน้าต่างอยู่ใน iframe หรือไม่
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>ความท้าทาย #9</h3>
+                            <h2 class="section-title">คดีที่ปิดแล้ว</h2>
+                            <p class="section-subtitle">
+                                รับ flag โดยส่งไฟล์ที่แสร้งทำเป็นไฟล์
+                                ที่มีวันที่ระหว่างปี 1970 ถึง 2000
+                            </p>
+                            <h4>ตัวอย่าง:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="ตัวอย่าง">
+                            <p class="section-subtitle">
+                                สำหรับสิ่งนี้ คุณต้องมีความรู้ดังต่อไปนี้:
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>ทำความเข้าใจบั๊กปี 2038 ที่เกี่ยวข้องกับ timestamp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>การเรียนรู้</h3>
+                            <h2 class="section-title">เอกสารและวิดีโอ</h2>
+                            <p class="section-subtitle">
+                                ไม่มีเอกสารในขณะนี้
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>ความช่วยเหลือ</h3>
+                            <h2 class="section-title">เคล็ดลับและคำใบ้</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">กระทู้บน
+                                    Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="กลับไปด้านบน"></a>
+    </div>
+</body>
+
+</html>
